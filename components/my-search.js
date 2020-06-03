@@ -1,5 +1,5 @@
 
-class myApp extends HTMLElement {
+class mySearch extends HTMLElement {
     constructor() {
         super(); 
 
@@ -11,12 +11,12 @@ class myApp extends HTMLElement {
     }
     getTemplate() {
         return `
-            <h2>Hola desde my app</h2>
-            <p>soy más texto ejemplo del componente</p>
-            <my-navbar></my-navbar>
-            <my-search></my-search>
-            <my-articles></my-articles>
-
+        <aside>
+            <div class="buscar">
+                <input type="text" placeholder="Buscar un producto">
+                <button>Buscar</button>
+            </div>
+        </aside>
             ${this.getStyles()}
         `; 
     }
@@ -44,9 +44,29 @@ class myApp extends HTMLElement {
                     color: var(--my-app-color, red);
                     font-size: var(--my-app-font-size, 16px);
                 }
+
+                .buscar {
+                    margin-top: 50px;
+                    float: left;
+                   }
+           
+                   .buscar input{
+                       height: 30px;
+                   }
+                   button{
+                       background-color: #008CBA;
+                       border: none;
+                       color: white;
+                       padding: 8px 16px;
+                       text-align: center;
+                       text-decoration: none;
+                       display: inline-block;
+                       font-size: 16px;
+                   }
+           
             </style>
         `; 
     }
 }
 
-customElements.define('my-app', myApp);
+customElements.define('my-search', mySearch);
